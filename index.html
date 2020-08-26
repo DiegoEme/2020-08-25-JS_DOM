@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    .caja {
+      display: grid;
+      grid-template-columns: repeat(3, 200px);
+    }
+    .minicaja {
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <div id="padre" class="caja">
+      <div class="minicaja">1</div>
+      <div class="minicaja">2</div>
+      <div class="minicaja">3</div>
+      <div class="minicaja">4</div>
+      <div class="minicaja">5</div>
+      <div class="minicaja">6</div>
+      <div class="minicaja">7</div>
+      <div class="minicaja">8</div>
+      <div class="minicaja">9</div>
+      <br />
+      <input type="text" id="texto" />
+      <button value="agregar"></button>
+      <ul id="lista"></ul>
+    </div>
+
+    <script>
+      var padre = document.getElementById("padre");
+      padre.addEventListener("click", (e) => {
+        console.log(e.target.textContent);
+        e.target.style.background = "red";
+      });
+
+      var texto = document.getElementById("texto");
+      var lista = document.getElementById("lista");
+      var agregar = document.getElementById("agregar");
+
+      agregar.addEventListener("click", () => {
+        var etiqueta = document.getElementById("li");
+        etiqueta.textContent = texto;
+        lista.appendChild(etiqueta);
+      });
+
+      var nuevoItem = texto.textContent.value;
+      console.log(nuevoItem);
+    </script>
+  </body>
+</html>
